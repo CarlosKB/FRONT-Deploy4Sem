@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/static/js/main.9a0a6183.js",
+    "static/media/lendingpageoleo.png": "/static/media/lendingpageoleo.2ea1c0ce821fafc70986.png",
+    "static/media/logofolhas.png": "/static/media/logofolhas.7dc1cbac0c0f756486e7.png",
+    "static/media/logo.png": "/static/media/logo.2d638b1458a662616297.png",
+    "static/media/cooperativa-branco.png": "/static/media/cooperativa-branco.0f2d6cbafc32f34007db.png",
+    "static/media/cooperativa-verde.png": "/static/media/cooperativa-verde.bd1706e0cb7b48ffe859.png",
+    "static/media/estabelecimento-verde.png": "/static/media/estabelecimento-verde.56f6ec84f1b4184c3114.png",
+    "static/media/estabelecimento-branco.png": "/static/media/estabelecimento-branco.4f262e0a30b21bba3147.png",
+    "static/media/erro404.png": "/static/media/erro404.ce5f725adcf06d243c2a.png",
+    "static/media/carrinho.png": "/static/media/carrinho.7f40c05c7669adb74397.png",
+    "static/media/money.png": "/static/media/money.099b053acf837bfddce3.png",
+    "static/media/grafico-de-pizza.png": "/static/media/grafico-de-pizza.be486f0585e7b49bb0fa.png",
+    "static/media/oleo-limpo-branco.png": "/static/media/oleo-limpo-branco.c278bb56aa00692d2782.png",
+    "static/media/logo4D.png": "/static/media/logo4D.a248f1b45339cc4c2650.png",
+    "static/media/oleo-usado-branco.png": "/static/media/oleo-usado-branco.b6b89edadb2c9200e062.png",
+    "static/media/oleo-usado-verde.png": "/static/media/oleo-usado-verde.f479ff68e3f751958c0b.png",
+    "static/media/papermoney.png": "/static/media/papermoney.344ea9120dda6fafbcca.png",
+    "static/media/oleo-limpo-verde.png": "/static/media/oleo-limpo-verde.c2b57610b91ba13caee5.png",
+    "static/media/cadastro.png": "/static/media/cadastro.08abf04aeb7fcd45b9da.png",
+    "index.html": "/index.html",
+    "main.9a0a6183.js.map": "/static/js/main.9a0a6183.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9a0a6183.js"
+  ]
+}
