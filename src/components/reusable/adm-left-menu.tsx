@@ -126,6 +126,12 @@ function AdmLeftMenu() {
     setOpen6(!open6);
   };
 
+  const [open7, setOpen7] = React.useState(true);
+  const handleClick7 = () => {
+    setOpen7(!open7);
+  };
+
+
   const drawer = (
     <Box sx={{ zIndex: 10 }}>
       <Toolbar />
@@ -135,7 +141,7 @@ function AdmLeftMenu() {
           <ListItemIcon>
             <img src={money} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Transferir Greenneat" />
+          <ListItemText primary="Transferir Greenneat"  onClick={() => navigate('/adm-transferir-greenneats')} />
           {open1 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
@@ -143,24 +149,24 @@ function AdmLeftMenu() {
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 5 }}>
               <img src={papermoney} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Transferir Greenneats" onClick={() => navigate('/adm-transferir-greenneats')}/>
+              <ListItemText sx={{ pl: 3 }} primary="Transferir Greenneats"/>
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
               <img src={papermoney} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Transferir Greenneats por óleo" onClick={() => navigate('')}/>
+              <ListItemText sx={{ pl: 3 }} primary="Transferir Greenneats por óleo"/>
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
               <img src={extrato} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Histórico de transferências" onClick={() => navigate('')} />
+              <ListItemText sx={{ pl: 3 }} primary="Histórico de transferências"  />
             </ListItemButton>
           </List>
         </Collapse>
 
         <Divider />
 
-        <ListItemButton onClick={handleClick6}>
+        <ListItemButton onClick={handleClick2}>
           <ListItemIcon>
             <img src={Grafico} alt="png" width="25px" />
           </ListItemIcon>
@@ -169,29 +175,43 @@ function AdmLeftMenu() {
 
         <Divider />
 
-        <ListItemButton onClick={handleClick2}>
+
+
+        <ListItemButton color="primary" onClick={handleClick3}>
           <ListItemIcon>
-            <img src={papermoney} alt="png" width="25px" />
+            <img src={extrato} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Greenneats recebidas dos usuários" onClick={() => navigate('/adm-historico-rec-user')} />
+          <ListItemText primary="Valor do óleo" onClick={() => navigate('/adm-valor-oleo')} />
+          {open3 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
+
+        <Collapse in={open3} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemButton sx={{ pl: 5 }}>
+              <img src={extrato} alt="png" width="20px" />
+              <ListItemText sx={{ pl: 3 }} primary="Parceiro" />
+            </ListItemButton>
+
+            <ListItemButton sx={{ pl: 5 }}>
+              <img src={extrato} alt="png" width="20px" />
+              <ListItemText sx={{ pl: 3 }} primary="Estabelecimento" />
+            </ListItemButton>
+          </List>
+        </Collapse>
+
+
 
         <Divider />
 
-        <ListItemButton onClick={handleClick3}>
-          <ListItemIcon>
-            <img src={boxes} alt="png" width="25px" />
-          </ListItemIcon>
-          <ListItemText primary="Estoque de Óleo" onClick={() => navigate('/adm-estoque-oleo')} />
-        </ListItemButton>
 
-        <Divider />
+
+        
 
         <ListItemButton color="primary" onClick={handleClick4}>
           <ListItemIcon>
             <img src={extrato} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Transferências feitas por usuários" />
+          <ListItemText primary="Transferências feitas por usuários" onClick={() => navigate('/transf-realiz-usuario')} />
           {open4 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
@@ -199,12 +219,12 @@ function AdmLeftMenu() {
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 5 }}>
               <img src={extrato} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Parceiro" onClick={() => navigate('/transf-realiz-usuario')}/>
+              <ListItemText sx={{ pl: 3 }} primary="Parceiro" />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
               <img src={extrato} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Estabelecimento" onClick={() => navigate('/transf-realiz-usuario')}/>
+              <ListItemText sx={{ pl: 3 }} primary="Estabelecimento" />
             </ListItemButton>
           </List>
         </Collapse>
@@ -235,6 +255,25 @@ function AdmLeftMenu() {
           </List>
         </Collapse>
 
+        <Divider />
+
+        <ListItemButton onClick={handleClick6}>
+          <ListItemIcon>
+            <img src={papermoney} alt="png" width="25px" />
+          </ListItemIcon>
+          <ListItemText primary="Greenneats recebidas dos usuários" onClick={() => navigate('/adm-historico-rec-user')} />
+        </ListItemButton>
+
+        <Divider />
+
+        <ListItemButton onClick={handleClick7}>
+          <ListItemIcon>
+            <img src={boxes} alt="png" width="25px" />
+          </ListItemIcon>
+          <ListItemText primary="Estoque de Óleo" onClick={() => navigate('/adm-estoque-oleo')} />
+        </ListItemButton>
+
+        
 
         
 

@@ -121,7 +121,7 @@ function EstLeftMenu() {
           <ListItemIcon>
             <img src={carrinho} alt="png" width="27px" />
           </ListItemIcon>
-          <ListItemText  primary="Comprar produtos" />
+          <ListItemText  primary="Comprar produtos" onClick={() => navigate('/estabelecimento-saldo')}/>
           {open1 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
@@ -129,7 +129,7 @@ function EstLeftMenu() {
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 5 }}>
               <img src={papermoney} alt="png" width="20px" />
-              <ListItemText  sx={{ pl: 2 }} primary="Comprar" onClick={() => navigate('/estabelecimento-saldo')}/>
+              <ListItemText  sx={{ pl: 2 }} primary="Comprar" />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
@@ -144,15 +144,15 @@ function EstLeftMenu() {
           <ListItemIcon>
             <img src={boxes} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Armazenar óleo" />
+          <ListItemText primary="Armazenar óleo" onClick={() => navigate('/estabelecimento-estoque')} />
           {open2 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
         <Collapse in={open2} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 5 }} onClick={() => navigate('/estabelecimento-estoque')}>
-              <img src={cadastro} alt="png" width="20px" onClick={() => navigate('/estabelecimento-estoque')}/>
-              <ListItemText sx={{ pl: 3 }} primary="Armazenar óleo" onClick={() => navigate('/estabelecimento-estoque')}/>
+            <ListItemButton sx={{ pl: 5 }} >
+              <img src={cadastro} alt="png" width="20px"/>
+              <ListItemText sx={{ pl: 3 }} primary="Armazenar óleo" />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>

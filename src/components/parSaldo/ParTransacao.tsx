@@ -156,7 +156,7 @@ export default function ParTransacao() {
     if (count1 === 0) {
       return { IsSucesso: false, msg: "Quantidade não pode ser zero." };
     }
-    if (count1 > quantidadeEstoque) {
+    if ((count1 * count2) > quantidadeEstoque) {
       return {
         IsSucesso: false,
         msg: "Quantidade insuficiente no estoque do estabelecimento.",
@@ -171,6 +171,30 @@ export default function ParTransacao() {
     sessionStorage.removeItem("tipoOleo");
     sessionStorage.removeItem("estabEstoque");
   };
+
+  const recuperarParametro = async () => {
+    const tipoOleo = sessionStorage.getItem("tipoOleo");
+
+    if (tipoOleo === "limpo") {
+      const parametroNome = "Óleo limpo"
+
+      const result = await Axios.get(`${process.env.REACT_APP_BaseURL}/GETParametroPorNome/${parametroNome}`)
+
+      if (result.data.Sucesso) {
+        const parametroObj = result.data.Parametro
+        setCount2(parametroObj.ParametroValorNumerico)
+      }
+    } else if (tipoOleo === "usado") {
+      const parametroNome = "Óleo usado"
+
+      const result = await Axios.get(`${process.env.REACT_APP_BaseURL}/GETParametroPorNome/${parametroNome}`)
+
+      if (result.data.Sucesso) {
+        const parametroObj = result.data.Parametro
+        setCount2(parametroObj.ParametroValorNumerico)
+      }
+    }
+  }
 
   const tranferirOleo = async () => {
     const retornoValidaCampos = await ValidaCampos();
@@ -191,8 +215,8 @@ export default function ParTransacao() {
             estabEstoqueObj.EstabelecimentoEstoqueProdutoDescricao,
           EstabelecimentoEstoqueTipo:
             estabEstoqueObj.EstabelecimentoEstoqueTipo,
-          EstabelecimentoEstoqueProdutoQuantidade: count1,
-          ParceiroCreditoQuantidade: count1,
+          EstabelecimentoEstoqueProdutoQuantidade: count1 * count2,
+          ParceiroCreditoQuantidade: count1
         };
 
         const resultado = await Axios.post(
@@ -449,6 +473,7 @@ export default function ParTransacao() {
                         handleGroup1ButtonClick("limpo");
                         sessionStorage.setItem("tipoOleo", "limpo");
                         recuperaEstabelecimentoEstoque();
+                        recuperarParametro();
                       }}
                     >
                       <img
@@ -503,6 +528,7 @@ export default function ParTransacao() {
                         handleGroup1ButtonClick("usado");
                         sessionStorage.setItem("tipoOleo", "usado");
                         recuperaEstabelecimentoEstoque();
+                        recuperarParametro();
                       }}
                     >
                       <img
@@ -560,31 +586,31 @@ export default function ParTransacao() {
                     }}
                   >
                     {/* BOTÃO - */}
-                    <Button
+                    {/* <Button
                       id="button3"
                       aria-label="reduce"
                       onClick={() => {
                         setCount2(Math.max(count2 - 1, 0));
                       }}
                     >
-                      {/* <RemoveIcon fontSize="small" /> */}
-                    </Button>
+                      <RemoveIcon fontSize="small" />
+                    </Button> */}
 
                     {/* NÚMERO CONTAGEM */}
                     <Badge color="secondary">
-                      <span style={{ fontSize: "24px" }}>{count1}</span>
+                      <span style={{ fontSize: "24px" }}>{count1 * count2}</span>
                     </Badge>
 
                     {/* BOTÃO + */}
-                    <Button
+                    {/* <Button
                       id="button4"
                       aria-label="increase"
                       onClick={() => {
                         setCount2(count1 + 1);
                       }}
                     >
-                      {/* <AddIcon fontSize="small" /> */}
-                    </Button>
+                      <AddIcon fontSize="small" />
+                    </Button> */}
                   </div>
 
                   {/* TEXTO */}
@@ -645,7 +671,7 @@ export default function ParTransacao() {
                         disabled={IsPossible}
                         onClick={tranferirOleo}
                       >
-                        transferir
+                        comprar
                       </Button>
                     </div>
                   </Stack>

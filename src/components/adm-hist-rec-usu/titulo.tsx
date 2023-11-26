@@ -46,7 +46,7 @@ export default function EstEstoqueTitulo() {
 
             <Grid item xs={11} sm={11} md={11} lg={11} xl={11}>
               <Typography sx={{ fontSize: '25px', fontFamily: 'actor' }}>
-                 Histórico de Greenneats
+                 Greenneats recebidas do usuários
               </Typography>
             </Grid>
 

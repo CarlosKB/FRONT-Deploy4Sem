@@ -163,9 +163,9 @@ export default function AdmUsuarioHistorico() {
                       <TableCell align="center">{row.UsuarioDataCadastro}</TableCell>
                       {/* Célula de ações com ícones */}
                       <TableCell align="center">
-                        <IconButton size="small" >
+                        {/* <IconButton size="small" >
                           <EditIcon />
-                        </IconButton>
+                        </IconButton> */}
                         <IconButton size="small" onClick={() => deletarUsuario(row.UsuarioID)}>
                           <DeleteIcon />
                         </IconButton>

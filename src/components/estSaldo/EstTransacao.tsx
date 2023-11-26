@@ -274,7 +274,7 @@ return (
             onClick={POSTTransacaoEstabelecimentoEmpresa}
             disabled={IsPossible}
           >
-            transferir
+            comprar
           </Button>
         </Stack>
 

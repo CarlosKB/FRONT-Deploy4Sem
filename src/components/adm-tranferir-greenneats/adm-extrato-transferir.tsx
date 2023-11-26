@@ -35,6 +35,7 @@ export default function AdmExtratoTranferir() {
   const usuarioLogado = sessionStorage.getItem("UsuarioLogado");
   const [page, setPage] = React.useState(0);
   const rowsPerPage = 7; // Define o número de linhas por página
+  
   const recuperarHistoricoOleo = async () => {
     if (usuarioLogado) {
       const usuarioJson = JSON.parse(usuarioLogado);

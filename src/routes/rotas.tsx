@@ -19,6 +19,7 @@ import AdmHistoricoRecUsu from "../pages/adm-historicoRecUsu";
 import AdmUsuarioCadastrado from "../pages/adm-usuario-cadastrado";
 import TransfRealizUsuario from "../pages/transf-realiz-usuario";
 import Dashboard from "../pages/adm-dashboard";
+import AdmValorOleo from "../pages/adm-valor-oleo";
 
 export const Rotas = () => {
   return (
@@ -111,6 +112,13 @@ export const Rotas = () => {
           element={
             <PrivateRouteADM>
               <Dashboard />
+            </PrivateRouteADM>
+          } />
+
+        <Route path="/adm-valor-oleo"
+          element={
+            <PrivateRouteADM>
+              <AdmValorOleo />
             </PrivateRouteADM>
           } />
 

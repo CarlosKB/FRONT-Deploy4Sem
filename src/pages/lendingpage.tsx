@@ -4,6 +4,7 @@ import Footer from "../components/reusable/Footer";
 import logofolhas from "../components/images/logofolhas.png";
 import lendingpageoleo from "../components/images/lendingpageoleo.png";
 import TopMenu from "../components/reusable/TopMenu";
+import EstLeftMenu from "../components/reusable/EstLeftMenu";
 
 function LendingPage() {
   const theme = createTheme({

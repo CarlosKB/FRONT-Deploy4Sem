@@ -110,16 +110,6 @@ export default function AdmTransfOleoTransferir() {
 
 
   const ValidaCampos = () => {
-    // const creditoParceiro = sessionStorage.getItem("ParceiroCredito");
-
-    // if (creditoParceiro) {
-    //   const creditoParceiroNumerico = parseInt(creditoParceiro, 10);
-
-    //   if (count1 > creditoParceiroNumerico) {
-    //     return { IsSucesso: false, msg: "Saldo insuficiente." };
-    //   }
-    // }
-
     if (selectedParceiro === null) {
       return {
         IsSucesso: false,
@@ -130,7 +120,7 @@ export default function AdmTransfOleoTransferir() {
     if (count1 === 0) {
       return { IsSucesso: false, msg: "Quantidade não pode ser zero." };
     }
-    if (count1 > quantidadeEstoque) {
+    if ((count1 * count2) > quantidadeEstoque) {
       return {
         IsSucesso: false,
         msg: "Quantidade insuficiente no estoque do Parceiro.",
@@ -145,6 +135,30 @@ export default function AdmTransfOleoTransferir() {
     sessionStorage.removeItem("tipoOleo");
     sessionStorage.removeItem("estabEstoque");
   };
+
+  const recuperarParametro = async () => {
+    const tipoOleo = sessionStorage.getItem("tipoOleo");
+
+    if (tipoOleo === "limpo") {
+      const parametroNome = "Óleo limpo"
+
+      const result = await Axios.get(`${process.env.REACT_APP_BaseURL}/GETParametroPorNome/${parametroNome}`)
+
+      if (result.data.Sucesso) {
+        const parametroObj = result.data.Parametro
+        setCount2(parametroObj.ParametroValorNumerico)
+      }
+    } else if (tipoOleo === "usado") {
+      const parametroNome = "Óleo usado"
+
+      const result = await Axios.get(`${process.env.REACT_APP_BaseURL}/GETParametroPorNome/${parametroNome}`)
+
+      if (result.data.Sucesso) {
+        const parametroObj = result.data.Parametro
+        setCount2(parametroObj.ParametroValorNumerico)
+      }
+    }
+  }
 
   const tranferirOleo = async () => {
     const retornoValidaCampos = await ValidaCampos();
@@ -164,7 +178,7 @@ export default function AdmTransfOleoTransferir() {
             parcEstoqueObj.ParceiroEstoqueProdutoDescricao,
           ParceiroEstoqueTipo:
             parcEstoqueObj.ParceiroEstoqueTipo,
-          ParceiroEstoqueProdutoQuantidade: count1,
+          ParceiroEstoqueProdutoQuantidade: count1 * count2,
           ParceiroCreditoQuantidade: count1,
           EstoqueTipo: parcEstoqueObj.ParceiroEstoqueTipo
         };//
@@ -433,6 +447,7 @@ export default function AdmTransfOleoTransferir() {
                         handleGroup1ButtonClick("limpo");
                         sessionStorage.setItem("tipoOleo", "limpo");
                         recuperaParceiroEstoque();
+                        recuperarParametro();
                       }}
                     >
                       <img
@@ -487,6 +502,7 @@ export default function AdmTransfOleoTransferir() {
                         handleGroup1ButtonClick("usado");
                         sessionStorage.setItem("tipoOleo", "usado");
                         recuperaParceiroEstoque();
+                        recuperarParametro();
                       }}
                     >
                       <img
@@ -544,31 +560,31 @@ export default function AdmTransfOleoTransferir() {
                     }}
                   >
                     {/* BOTÃO - */}
-                    <Button
+                    {/* <Button
                       id="button3"
                       aria-label="reduce"
                       onClick={() => {
                         setCount2(Math.max(count2 - 1, 0));
                       }}
                     >
-                      {/* <RemoveIcon fontSize="small" /> */}
-                    </Button>
+                      <RemoveIcon fontSize="small" />
+                    </Button> */}
 
                     {/* NÚMERO CONTAGEM */}
                     <Badge color="secondary">
-                      <span style={{ fontSize: "24px" }}>{count1}</span>
+                      <span style={{ fontSize: "24px" }}>{count1 * count2}</span>
                     </Badge>
 
                     {/* BOTÃO + */}
-                    <Button
+                    {/* <Button
                       id="button4"
                       aria-label="increase"
                       onClick={() => {
                         setCount2(count1 + 1);
                       }}
                     >
-                      {/* <AddIcon fontSize="small" /> */}
-                    </Button>
+                      <AddIcon fontSize="small" />
+                    </Button> */}
                   </div>
 
                   {/* TEXTO */}

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.9a0a6183.js",
+    "main.js": "/static/js/main.df7588d6.js",
     "static/media/lendingpageoleo.png": "/static/media/lendingpageoleo.2ea1c0ce821fafc70986.png",
     "static/media/logofolhas.png": "/static/media/logofolhas.7dc1cbac0c0f756486e7.png",
     "static/media/logo.png": "/static/media/logo.2d638b1458a662616297.png",
@@ -20,9 +20,9 @@
     "static/media/oleo-limpo-verde.png": "/static/media/oleo-limpo-verde.c2b57610b91ba13caee5.png",
     "static/media/cadastro.png": "/static/media/cadastro.08abf04aeb7fcd45b9da.png",
     "index.html": "/index.html",
-    "main.9a0a6183.js.map": "/static/js/main.9a0a6183.js.map"
+    "main.df7588d6.js.map": "/static/js/main.df7588d6.js.map"
   },
   "entrypoints": [
-    "static/js/main.9a0a6183.js"
+    "static/js/main.df7588d6.js"
   ]
 }

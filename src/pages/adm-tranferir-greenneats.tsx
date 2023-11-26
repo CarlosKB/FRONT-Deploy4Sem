@@ -8,14 +8,7 @@ import {
   createTheme,
   useMediaQuery,
 } from "@mui/material";
-// import ParCreditoBotoes from "../components/par-credito-greenneat/par-credito-botoes";
-// import ParCreditoTitulo from "../components/par-credito-greenneat/par-credito-titulo";
-// import ParCreditoTotal from "../components/par-credito-greenneat/par-credito-total";
-// import ParLeftMenu from "../components/reusable/ParLeftMenu";
-// import ParExtratoReceber from "../components/par-credito-greenneat/par-extrato-receber";
-// import ParCreditoSubtitulo from "../components/par-credito-greenneat/par-credito-subtitulo";
-// import ParExtratoTransferir from "../components/par-credito-greenneat/par-extrato-transferir";
-// import ParCreditoTransferir from "../components/par-credito-greenneat/par-credito-transferir";
+import ParCreditoTransferir from "../components/par-credito-greenneat/par-credito-transferir";
 import AdmTituloTransferirGreenneats from "../components/adm-tranferir-greenneats/adm-titulo-tranferir-greenneats";
 import AdmTransferirBotoes from "../components/adm-tranferir-greenneats/adm-botoes-trasnferir";
 import AdmSubtituloTransferir from "../components/adm-tranferir-greenneats/adm-subtitulo-transferir";

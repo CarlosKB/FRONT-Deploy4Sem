@@ -109,14 +109,13 @@ function ParLeftMenu() {
     setOpen1(!open1);
   };
 
-  const [open2, setOpen2] = React.useState(true);
+  const [open2, ] = React.useState(true);
   const handleClick2 = () => {
-    setOpen2(!open2);
   };
 
-  const [open3] = React.useState(true);
+  const [open3, setOpen3] = React.useState(true);
   const handleClick3 = () => {
-    setOpen2(!open3);
+    setOpen3(!open3);
   };
 
   const drawer = (
@@ -143,7 +142,7 @@ function ParLeftMenu() {
           <ListItemIcon>
             <img src={carrinho} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Comprar óleo" />
+          <ListItemText primary="Comprar óleo" onClick={() => navigate('/parceiro-saldo')} />
           {open1 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
@@ -151,7 +150,7 @@ function ParLeftMenu() {
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 5 }}>
               <img src={papermoney} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Comprar" onClick={() => navigate('/parceiro-saldo')} />
+              <ListItemText sx={{ pl: 3 }} primary="Comprar"  />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
@@ -164,7 +163,7 @@ function ParLeftMenu() {
         </Collapse>
         <Divider/>
         {/*ESTOQUE DE ÓLEO*/}
-        <ListItemButton onClick={handleClick3}>
+        <ListItemButton onClick={handleClick2}>
           <ListItemIcon>
             <img src={boxes} alt="png" width="25px" />
           </ListItemIcon>
@@ -174,25 +173,25 @@ function ParLeftMenu() {
 
 
         {/*CRÉDITO GREENNEAT*/}
-        <ListItemButton onClick={handleClick2}>
+        <ListItemButton onClick={handleClick3}>
           <ListItemIcon>
             <img src={money} alt="png" width="25px" />
           </ListItemIcon>
-          <ListItemText primary="Crédito Greenneat" />
-          {open2 ? <ExpandLess /> : <ExpandMore />}
+          <ListItemText primary="Crédito Greenneat" onClick={() => navigate('/par-credito-greenneat')} />
+          {open3 ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
 
-        <Collapse in={open2} timeout="auto" unmountOnExit>
+        <Collapse in={open3} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
 
             <ListItemButton sx={{ pl: 5 }}>
               <img src={extrato} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Greenneats recebidas" onClick={() => navigate('/par-credito-greenneat')} />
+              <ListItemText sx={{ pl: 3 }} primary="Greenneats recebidas"  />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
               <img src={extrato} alt="png" width="20px" />
-              <ListItemText sx={{ pl: 3 }} primary="Comprar produtos" />
+              <ListItemText sx={{ pl: 3 }} primary="Comprar produtos"  />
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 5 }}>
